@@ -1,0 +1,1 @@
+const assert=require('assert'),{four2,four3,fresh}=require('./server');let b=Array.from({length:6},()=>Array(7).fill(null));for(let c=0;c<4;c++)b[5][c]='red';assert(four2(b,5,3,'red'));assert(four3([0,1,2,3].map(x=>({x,y:0,z:0,colour:'yellow'})),{x:3,y:0,z:0,colour:'yellow'}));assert.strictEqual(fresh().config.variant,'classic');console.log('Todos os testes passaram.');
