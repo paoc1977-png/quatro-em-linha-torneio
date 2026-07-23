@@ -1,0 +1,1 @@
+const fs=require('fs'),path=require('path');const dir=path.join(__dirname,'public','vendor');fs.mkdirSync(dir,{recursive:true});const build=path.dirname(require.resolve('three'));fs.copyFileSync(path.join(build,'three.module.min.js'),path.join(dir,'three.module.min.js'));
