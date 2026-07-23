@@ -1,0 +1,5 @@
+{
+  "name":"quatro-em-linha-torneio","version":"1.0.0","private":true,
+  "scripts":{"start":"node server.js","test":"node test.js","postinstall":"node copy-three.js"},
+  "dependencies":{"qrcode":"^1.5.4","three":"^0.178.0"},"engines":{"node":">=18"}
+}
