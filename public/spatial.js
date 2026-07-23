@@ -109,6 +109,7 @@ export class SpatialBoard{
     );
     this.camera.lookAt(this.target);
     this.ui.map.style.setProperty('--map-angle',`${this.az}rad`);
+    this.ui.map.style.setProperty('--map-counter-angle',`${-this.az}rad`);
   }
 
   resize(){
