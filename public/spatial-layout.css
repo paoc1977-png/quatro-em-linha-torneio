@@ -43,6 +43,7 @@
 }
 .spatial-side .mapgrid{
   --map-angle:0rad;
+  --map-counter-angle:0rad;
   width:120px;
   height:120px;
   margin:0;
@@ -50,7 +51,7 @@
   transition:transform .08s linear;
 }
 .spatial-side .mapgrid button{
-  transform:rotate(calc(-1 * var(--map-angle)));
+  transform:rotate(var(--map-counter-angle));
   transition:transform .08s linear,background .15s;
 }
 .spatial-side .tools{
