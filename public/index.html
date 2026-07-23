@@ -1,1 +1,48 @@
-<!doctype html><html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>4 em Linha · Torneio</title><link rel="stylesheet" href="/styles.css"></head><body><header><div class="brand"><i></i><i></i><i></i><i></i></div><div><h1>4 em Linha</h1><p>Torneio escolar de estratégia</p></div></header><main><section id="join" class="card narrow"><p class="eyebrow">Entrada no torneio</p><h2 id="joinTitle">Escolhe o teu lugar</h2><label>Código do torneio<input id="roomInput" maxlength="6" class="room-code" style="font-size:26px"></label><div id="choices" class="table-list"></div><p id="error" class="error"></p></section><section id="waiting" class="card narrow hidden"><h2>Aguarda o início da ronda</h2><p>O emparelhamento aparecerá automaticamente.</p></section><div id="game" class="game-layout hidden"><section class="card game-card"><p id="round" class="eyebrow"></p><h2 id="versus"></h2><div id="turn" class="turn"></div><div id="classic" class="board"></div><div id="spatial" class="spatial-wrap hidden"><div id="three"></div><aside class="topmap"><b>VISTA SUPERIOR</b><small>Escolhe um pilar</small><div id="map" class="mapgrid"></div></aside><div class="tools"><button id="far">−</button><button id="near">＋</button><button id="home">⌂</button></div></div></section><aside class="card"><h2>Classificação</h2><div id="ranking"></div></aside></div></main><script src="/common.js"></script><script type="module" src="/game.js"></script></body></html>
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>4 em Linha · Torneio</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <div class="brand"><i></i><i></i><i></i><i></i></div>
+    <div><h1>4 em Linha</h1><p>Torneio escolar de estratégia</p></div>
+  </header>
+  <main>
+    <section id="join" class="card narrow">
+      <p class="eyebrow">Entrada no torneio</p>
+      <h2 id="joinTitle">Inscreve-te no torneio</h2>
+      <div id="registerForm">
+        <label>O teu nome<input id="nameInput" maxlength="30" autocomplete="name" placeholder="Nome do jogador"></label>
+        <label>Código do torneio<input id="roomInput" maxlength="6" class="room-code" style="font-size:26px"></label>
+        <button id="registerBtn" class="primary">Inscrever-me</button>
+      </div>
+      <div id="choices" class="table-list"></div>
+      <p id="error" class="error"></p>
+    </section>
+    <section id="waiting" class="card narrow hidden">
+      <h2>Aguarda o início da ronda</h2>
+      <p>O emparelhamento aparecerá automaticamente.</p>
+    </section>
+    <div id="game" class="game-layout hidden">
+      <section class="card game-card">
+        <p id="round" class="eyebrow"></p>
+        <h2 id="versus"></h2>
+        <div id="turn" class="turn"></div>
+        <div id="classic" class="board"></div>
+        <div id="spatial" class="spatial-wrap hidden">
+          <div id="three"></div>
+          <aside class="topmap"><b>VISTA SUPERIOR</b><small>Escolhe um pilar</small><div id="map" class="mapgrid"></div></aside>
+          <div class="tools"><button id="far">−</button><button id="near">＋</button><button id="home">⌂</button></div>
+        </div>
+      </section>
+      <aside class="card"><h2>Classificação</h2><div id="ranking"></div></aside>
+    </div>
+  </main>
+  <script src="/common.js"></script>
+  <script type="module" src="/game.js"></script>
+</body>
+</html>
