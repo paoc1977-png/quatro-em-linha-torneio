@@ -1,7 +1,5 @@
-import {SpatialBoard} from '/spatial.js';
-
 let token=localStorage.fourToken||('d-'+Date.now()+'-'+Math.random().toString(36).slice(2));
-let me=localStorage.fourPlayer||'',table=localStorage.fourTable||'',board3;
+let me=localStorage.fourPlayer||'',table=localStorage.fourTable||'',board3,SpatialBoard,spatialLoading;
 localStorage.fourToken=token;
 const room=new URLSearchParams(location.search).get('room')||localStorage.fourRoom||'';
 $('#roomInput').value=room;
@@ -37,6 +35,11 @@ function showWaiting(){
   $('#join').classList.add('hidden');
   $('#game').classList.add('hidden');
   $('#waiting').classList.remove('hidden');
+}
+function loadSpatial(){
+  if(!spatialLoading)spatialLoading=import('/spatial.js')
+    .then(module=>{SpatialBoard=module.SpatialBoard;render(state)})
+    .catch(e=>{$('#error').textContent='Não foi possível carregar o tabuleiro 3D.';console.error(e)});
 }
 function render(s){
   state=s;
@@ -88,6 +91,7 @@ function render(s){
   }else{
     $('#classic').classList.add('hidden');
     $('#spatial').classList.remove('hidden');
+    if(!SpatialBoard){loadSpatial();return}
     if(!board3)board3=new SpatialBoard($('#three'),{near:$('#near'),far:$('#far'),home:$('#home'),map:$('#map')},(x,z)=>drop({matchId:board3.matchId,x,z}));
     board3.matchId=mine.id;
     board3.update(mine.cells,can);
