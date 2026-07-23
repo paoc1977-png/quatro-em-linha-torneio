@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>4 em Linha · Torneio</title>
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/spatial-layout.css">
 </head>
 <body>
   <header>
@@ -35,8 +36,18 @@
         <div id="classic" class="board"></div>
         <div id="spatial" class="spatial-wrap hidden">
           <div id="three"></div>
-          <aside class="topmap"><b>VISTA SUPERIOR</b><small>Escolhe um pilar</small><div id="map" class="mapgrid"></div></aside>
-          <div class="tools"><button id="far">−</button><button id="near">＋</button><button id="home">⌂</button></div>
+          <aside class="spatial-side">
+            <div class="topmap">
+              <b>VISTA SUPERIOR</b>
+              <small>Roda com o tabuleiro</small>
+              <div class="mapframe"><div id="map" class="mapgrid"></div></div>
+            </div>
+            <div class="tools" aria-label="Controlos da vista">
+              <button id="far" title="Afastar">−</button>
+              <button id="near" title="Aproximar">＋</button>
+              <button id="home" title="Repor vista">⌂</button>
+            </div>
+          </aside>
         </div>
       </section>
       <aside class="card"><h2>Classificação</h2><div id="ranking"></div></aside>
