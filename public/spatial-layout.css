@@ -1,0 +1,95 @@
+/* O tabuleiro e os controlos ocupam zonas independentes. */
+.spatial-wrap{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 210px;
+  min-height:620px;
+  background:radial-gradient(circle at 38% 45%,#edf5ff,#cdd9e8);
+}
+.spatial-wrap #three{
+  position:relative;
+  inset:auto;
+  min-width:0;
+}
+.spatial-wrap #three canvas{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+}
+.spatial-side{
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+  padding:18px 14px;
+  background:rgba(255,255,255,.75);
+  border-left:1px solid rgba(170,185,205,.8);
+  backdrop-filter:blur(8px);
+}
+.spatial-side .topmap{
+  position:static;
+  width:100%;
+  padding:14px 10px 16px;
+  text-align:center;
+}
+.spatial-side .topmap small{display:block}
+.mapframe{
+  width:166px;
+  height:166px;
+  margin:10px auto 0;
+  display:grid;
+  place-items:center;
+}
+.spatial-side .mapgrid{
+  --map-angle:0rad;
+  width:120px;
+  height:120px;
+  margin:0;
+  transform:rotate(var(--map-angle));
+  transition:transform .08s linear;
+}
+.spatial-side .mapgrid button{
+  transform:rotate(calc(-1 * var(--map-angle)));
+  transition:transform .08s linear,background .15s;
+}
+.spatial-side .tools{
+  position:static;
+  display:flex;
+  gap:8px;
+  justify-content:center;
+}
+.spatial-side .tools button{
+  width:44px;
+  height:44px;
+  font-size:20px;
+  box-shadow:0 3px 10px rgba(20,33,61,.12);
+}
+@media(max-width:850px){
+  .spatial-wrap{
+    grid-template-columns:minmax(0,1fr) 190px;
+    min-height:540px;
+  }
+  .spatial-side{padding:14px 8px}
+  .mapframe{width:150px;height:150px}
+}
+@media(max-width:560px){
+  .game-card{padding:12px}
+  .spatial-wrap{
+    grid-template-columns:1fr;
+    grid-template-rows:390px auto;
+    min-height:0;
+  }
+  .spatial-side{
+    border-left:0;
+    border-top:1px solid rgba(170,185,205,.8);
+    padding:12px;
+    display:grid;
+    grid-template-columns:1fr auto;
+  }
+  .spatial-side .topmap{
+    max-width:190px;
+    justify-self:center;
+  }
+  .spatial-side .tools{flex-direction:column}
+}
